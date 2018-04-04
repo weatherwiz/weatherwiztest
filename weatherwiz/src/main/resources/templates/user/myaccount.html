@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0,maximum-scale=1" />
+
+<title>WeatherWiz</title>
+<link href="/css/toastr.min.css" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|"
+	rel="stylesheet" type="text/css" />
+<link href="/fonts/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/weatherwiz.css" />
+</head>
+<body>
+	<div class="site-content">
+		<div th:replace="user/fragments/header :: header"></div>
+		<div th:replace="guest/fragments/header :: header"></div>
+
+		<div class="hero" data-bg-image="/img/rain.jpg">
+			<div class="container">
+				<div class="col-sm-3">&nbsp;</div>
+				<div class="col-md-6 text-center">
+					<div class="tm-black-bg">
+						<div class="tm-search-box effect2">
+							<form action="#" class="contact-form">
+								<div class="row">
+									<div class="form-group margin-bottom-0">&nbsp;</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<h2 class="section-title" style="color: white;">User
+											Profile</h2>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group margin-bottom-0">&nbsp;</div>
+								</div>
+								<div class="row ">
+									<div class="col-md-12">
+										<table width="100%" class="table-responsive">
+											<tr>
+												<td align="left" style="padding-left: 2px;">First Name</td>
+												<td>:</td>
+												<td><input id="txtFirstName" type="text"
+													placeholder="First Name"></td>
+											</tr>
+											<tr>
+												<td align="left" style="padding-left: 2px;">Last Name</td>
+												<td>:</td>
+												<td><input id="txtLastName" type="text"
+													placeholder="Last Name"></td>
+											</tr>
+											<tr>
+												<td align="left" style="padding-left: 2px;">Email ID</td>
+												<td>:</td>
+												<td><input id="txtEmailID" type="email"
+													placeholder="Email ID"></td>
+											</tr>
+											<tr>
+												<td align="left" style="padding-left: 2px;">Mobile</td>
+												<td>:</td>
+												<td><input id="txtMobileNumber" type="text"
+													placeholder="Mobile Number"></td>
+											</tr>
+											<tr>
+												<td align="left" style="padding-left: 2px;">Password</td>
+												<td>:</td>
+												<td><input id="txtPassword" type="password"
+													placeholder="Password"></td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group margin-bottom-0">&nbsp;</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<input type="button" id="btnSave" value="Save"
+											style="background-color: #009ad8;">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">&nbsp;</div>
+			</div>
+		</div>
+		<main class="main-content">
+
+		<div class="fullwidth-block" data-bg-color="#1e202B">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<h2 class="section-title" align="center">Save Your Favorite
+							Cities And Stay Informed Of The Weather</h2>
+						<div class="photo-grid">
+							<a href="#"><img src="/img/thumb-1.jpg" alt="#"
+								class="img-responsive"></a> <a href="#"><img
+								src="/img/thumb-2.jpg" alt="#" class="img-responsive"></a> <a
+								href="#"><img src="/img/thumb-3.jpg" alt="#"
+								class="img-responsive"></a> <a href="#"><img
+								src="/img/thumb-4.jpg" alt="#" class="img-responsive"></a> <a
+								href="#"><img src="/img/thumb-5.jpg" alt="#"
+								class="img-responsive"></a> <a href="#"><img
+								src="/img/thumb-6.jpg" alt="#" class="img-responsive"></a>
+
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2 class="section-title" align="center">
+							Get Some Great Places To escape this season<br />
+						</h2>
+						<div class="home-page-section" margin-top="5%">
+							<figure class="home-page-section-cover">
+								<img src="/img/great_escapes.jpg" alt="" class="img-responsive">
+							</figure>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2 class="section-title" align="center">WeatherWiz Wants To
+							Know Your Mood Today!</h2>
+						<!-- 	<div top-margin = "5%"> -->
+						<div class="home-page-section">
+							<table width="100%" class="table-responsive">
+								<tr>
+									<td align="center" colspan="5" style="font-size: large;">Click
+										the emoji that best expresses how you feel right now.</td>
+								</tr>
+								<tr align="center">
+									<td width="20%"><img id="imgAngry"
+										onclick="emojiClicked('imgAngry')" class="img-responsive"
+										src="/img/angry.png" width="40px"></td>
+									<td width="20%"><img id="imgSad"
+										onclick="emojiClicked('imgSad')" class="img-responsive"
+										src="/img/sad.png" width="40px"></td>
+									<td width="20%"><img id="imgNeutral"
+										onclick="emojiClicked('imgNeutral')" class="img-responsive"
+										src="/img/neutral.png" width="40px"></td>
+									<td width="20%"><img id="imgSatisfied"
+										onclick="emojiClicked('imgSatisfied')" class="img-responsive"
+										src="/img/satisfied.png" width="48px"></td>
+									<td width="20%"><img id="imgHappy"
+										onclick="emojiClicked('imgHappy')" class="img-responsive"
+										src="/img/happy.png" width="40px"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</main>
+		<!-- .main-content -->
+
+		<div th:replace="user/fragments/footer :: footer"></div>
+		<!-- .site-footer -->
+	</div>
+
+	<script type="text/javascript" src="/inbuiltJS/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/moment.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/jquerysession.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/toastr.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/plugins.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/app.js"></script>
+	<script type="text/javascript" src="/customJS/common.js"></script>
+	<script type="text/javascript" src="/customJS/myaccount.js"></script>
+
+</body>
+
+</html>

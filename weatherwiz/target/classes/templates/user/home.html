@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0,maximum-scale=1" />
+
+<title>WeatherWiz</title>
+
+<link href="/css/toastr.min.css" rel="stylesheet">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|"
+	rel="stylesheet" type="text/css" />
+<link href="/fonts/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+	<div class="site-content">
+		<div th:replace="user/fragments/header :: header"></div>
+		<div th:replace="guest/fragments/header :: header"></div>
+
+		<div class="hero" data-bg-image="/img/rain.jpg">
+			<div class="container">
+				<form action="#" class="find-location">
+					<!-- <table>
+						<tr>
+							<td></td>
+						</tr>
+					</table> -->
+					<input onchange="placeNameTyping(this)" onkeyup="this.onchange();"
+						id="txtLocationToBeSearched" onpaste="this.onchange();"
+						oninput="this.onchange();" type="text"
+						placeholder="Find your location..." class="ui-widget" /> <input
+						type="button" id="btnFind" value="Find Location"
+						style="background-color: #009ad8;" placeholder="Send message" />
+				</form>
+			</div>
+		</div>
+		<div class="forecast-table">
+			<div class="container">
+				<div class="forecast-container">
+					<div class="today forecast">
+						<div class="forecast-header">
+							<table width="100%" class="table-responsive">
+								<tr>
+									<td align="left"><div class="divTime">
+											<span id="spanTime"></span>
+										</div></td>
+									<td align="right"><div class="divDate">
+											<span id="spanDate"></span>
+										</div></td>
+								</tr>
+							</table>
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content">
+							<div class="location">
+								<span id="spanLocation"></span>
+							</div>
+							<div class="degree">
+								<div class="num">
+									<span id="spanTodayTemp"></span>
+								</div>
+								<div class="forecast-icon">
+									<img id="imgTodayDayIcon" src="" alt="/img/icons/icon-10.svg"
+										class="img-responsive" width=60>
+								</div>
+							</div>
+							<span id="spanDewPoint"></span> <span id="spanWindSpeed"></span>
+							<span id="spanWindDirection"></span>
+						</div>
+					</div>
+					<div class="forecast text-center">
+						<div class="forecast-header">
+							<div class="day">
+								<span id="spanTime1"></span>
+							</div>
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content text-center">
+							<div class="forecast-icon text-center">
+								<img id="imgForcastIcon1" src="" alt="/img/icons/icon-10.svg"
+									class="img-responsive" style="display: inline;">
+							</div>
+							<div class="degree">
+								<span id="spanTemp1"></span>
+							</div>
+							<!-- 	<small>18<sup>o</sup></small> -->
+						</div>
+					</div>
+					<div class="forecast">
+						<div class="forecast-header">
+							<div class="day">
+								<span id="spanTime2"></span>
+							</div>
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content text-center">
+							<div class="forecast-icon">
+								<img id="imgForcastIcon2" src="" alt="/img/icons/icon-10.svg"
+									class="img-responsive" style="display: inline;">
+							</div>
+							<div class="degree">
+								<span id="spanTemp2"></span>
+							</div>
+							<!-- <small>18<sup>o</sup></small> -->
+						</div>
+					</div>
+					<div class="forecast">
+						<div class="forecast-header">
+							<div class="day">
+								<span id="spanTime3"></span>
+							</div>
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content text-center">
+							<div class="forecast-icon">
+								<img id="imgForcastIcon3" src="" alt="/img/icons/icon-10.svg"
+									class="img-responsive" style="display: inline;">
+							</div>
+							<div class="degree">
+								<span id="spanTemp3"></span>
+							</div>
+							<!-- 	<small>18<sup>o</sup></small> -->
+						</div>
+					</div>
+					<div class="forecast">
+						<div class="forecast-header">
+							<div class="day">
+								<span id="spanTime4"></span>
+							</div>
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content text-center">
+							<div class="forecast-icon">
+								<img id="imgForcastIcon4" src="" alt="/img/icons/icon-10.svg"
+									class="img-responsive" style="display: inline;">
+							</div>
+							<div class="degree">
+								<span id="spanTemp4"></span>
+							</div>
+							<!-- <small>18<sup>o</sup></small> -->
+						</div>
+					</div>
+					<div class="forecast">
+						<div class="forecast-header">
+							<div class="day">
+								<span id="spanTime5"></span>
+							</div>
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content text-center">
+							<div class="forecast-icon">
+								<img id="imgForcastIcon5" src="" alt="/img/icons/icon-10.svg"
+									class="img-responsive" style="display: inline;">
+							</div>
+							<div class="degree">
+								<span id="spanTemp5"></span>
+							</div>
+							<!-- <small>18<sup>o</sup></small> -->
+						</div>
+					</div>
+					<div class="forecast">
+						<div class="forecast-header">
+							<div class="day">
+								<span id="spanTime6"></span>
+							</div>
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content text-center">
+							<div class="forecast-icon" float="left">
+								<img id="imgForcastIcon6" src="" alt="/img/icons/icon-10.svg"
+									class="img-responsive" style="display: inline;">
+							</div>
+							<div class="degree">
+								<span id="spanTemp6"></span>
+							</div>
+							<!-- <small>18<sup>o</sup></small> -->
+						</div>
+					</div>
+				</div>
+				<br />
+				<div>
+					<table width="100%"
+						style="background-color: #323544; border-radius: 1.25em"
+						class="table-responsive">
+						<tr height="40px">
+							<td><img id="imgTodayForcastIcon" src=""
+								class="img-responsive" style="padding-left: 5px"
+								alt="/img/icons/icon-10.svg" width=32></td>
+							<td width="7%" style="font-weight: bold; padding-left: 5px">Today</td>
+							<td><table id="tblTodayGraph" width="100%"
+									class="table-responsive"
+									style="border-collapse: collapse; border-radius: 1em; overflow: hidden;"></table></td>
+							<td width="5%"><span id="spanExpandContractTodayGraph"
+								onclick="expandDay(this, 'tdTodayGraphDetails')"
+								style="font-weight: bold; font-size: xx-large;" class="zoom-in">+</span></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td id="tdTodayGraphDetails"></td>
+							<td></td>
+						</tr>
+						<tr height="40px">
+							<td><img id="imgDay1ForcastIcon" src=""
+								class="img-responsive" style="padding-left: 5px"
+								alt="/img/icons/icon-10.svg" width=32></td>
+							<td width="7%" style="font-weight: bold; padding-left: 5px"><span
+								id="spanDay1"></span></td>
+							<td><table id="tblDay1Graph" width="100%"
+									class="table-responsive"></table></td>
+							<td><span id="spanExpandContractDay1Graph"
+								onclick="expandDay(this, 'tdDay1GraphDetails')"
+								style="font-weight: bold; font-size: xx-large;" class="zoom-in">+</span></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td id="tdDay1GraphDetails"></td>
+							<td></td>
+						</tr>
+						<tr height="40px">
+							<td><img id="imgDay2ForcastIcon" src=""
+								class="img-responsive" style="padding-left: 5px"
+								alt="/img/icons/icon-10.svg" width=32></td>
+							<td width="7%" style="font-weight: bold; padding-left: 5px"><span
+								id="spanDay2"></span></td>
+							<td><table id="tblDay2Graph" width="100%"
+									class="table-responsive"></table></td>
+							<td><span id="spanExpandContractDay2Graph"
+								onclick="expandDay(this, 'tdDay2GraphDetails')"
+								style="font-weight: bold; font-size: xx-large;" class="zoom-in">+</span></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td id="tdDay2GraphDetails"></td>
+							<td></td>
+						</tr>
+						<tr height="40px">
+							<td><img id="imgDay3ForcastIcon" src=""
+								class="img-responsive" style="padding-left: 5px"
+								alt="/img/icons/icon-10.svg" width=32></td>
+							<td width="7%" style="font-weight: bold; padding-left: 5px"><span
+								id="spanDay3"></span></td>
+							<td><table id="tblDay3Graph" width="100%"
+									class="table-responsive"></table></td>
+							<td><span id="spanExpandContractDay3Graph"
+								onclick="expandDay(this, 'tdDay3GraphDetails')"
+								style="font-weight: bold; font-size: xx-large;" class="zoom-in">+</span></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td id="tdDay3GraphDetails"></td>
+							<td></td>
+						</tr>
+						<tr height="40px">
+							<td><img id="imgDay4ForcastIcon" src=""
+								class="img-responsive" style="padding-left: 5px"
+								alt="/img/icons/icon-10.svg" width=32></td>
+							<td width="7%" style="font-weight: bold; padding-left: 5px"><span
+								id="spanDay4"></span></td>
+							<td><table id="tblDay4Graph" width="100%"
+									class="table-responsive"></table></td>
+							<td><span id="spanExpandContractDay4Graph"
+								onclick="expandDay(this, 'tdDay4GraphDetails')"
+								style="font-weight: bold; font-size: xx-large;" class="zoom-in">+</span></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td id="tdDay4GraphDetails"></td>
+							<td></td>
+						</tr>
+						<tr height="40px">
+							<td><img id="imgDay5ForcastIcon" src=""
+								class="img-responsive" style="padding-left: 5px"
+								alt="/img/icons/icon-10.svg" width=32></td>
+							<td width="7%" style="font-weight: bold; padding-left: 5px"><span
+								id="spanDay5"></span></td>
+							<td><table id="tblDay5Graph" width="100%"
+									class="table-responsive"></table></td>
+							<td><span id="spanExpandContractDay5Graph"
+								onclick="expandDay(this, 'tdDay5GraphDetails')"
+								style="font-weight: bold; font-size: xx-large;" class="zoom-in">+</span></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td id="tdDay5GraphDetails"></td>
+							<td></td>
+						</tr>
+						<tr height="40px">
+							<td><img id="imgDay6ForcastIcon" src=""
+								class="img-responsive" style="padding-left: 5px"
+								alt="/img/icons/icon-10.svg" width=32></td>
+							<td width="7%" style="font-weight: bold; padding-left: 5px"><span
+								id="spanDay6"></span></td>
+							<td><table id="tblDay6Graph" width="100%"
+									class="table-responsive"></table></td>
+							<td><span id="spanExpandContractDay6Graph"
+								onclick="expandDay(this, 'tdDay6GraphDetails')"
+								style="font-weight: bold; font-size: xx-large;" class="zoom-in">+</span></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td id="tdDay6GraphDetails"></td>
+							<td></td>
+						</tr>
+						<tr height="40px">
+							<td><img id="imgDay7ForcastIcon" src=""
+								class="img-responsive" style="padding-left: 5px"
+								alt="/img/icons/icon-10.svg" width=32></td>
+							<td width="7%" style="font-weight: bold; padding-left: 5px"><span
+								id="spanDay7"></span></td>
+							<td><table id="tblDay7Graph" width="100%"
+									class="table-responsive"></table></td>
+							<td><span id="spanExpandContractDay7Graph"
+								onclick="expandDay(this, 'tdDay7GraphDetails')"
+								style="font-weight: bold; font-size: xx-large;" class="zoom-in">+</span></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td id="tdDay7GraphDetails"></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div id="map"></div>
+
+		<main class="main-content">
+		<div class="fullwidth-block" data-bg-color="#1e202B">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<h2 class="section-title" align="center">Save Your Favorite
+							Cities And Stay Informed Of The Weather</h2>
+						<div class="photo-grid">
+							<a href="#"><img src="/img/thumb-1.jpg" alt="#"
+								class="img-responsive"></a> <a href="#"><img
+								src="/img/thumb-2.jpg" alt="#" class="img-responsive"></a> <a
+								href="#"><img src="/img/thumb-3.jpg" alt="#"
+								class="img-responsive"></a> <a href="#"><img
+								src="/img/thumb-4.jpg" alt="#" class="img-responsive"></a> <a
+								href="#"><img src="/img/thumb-5.jpg" alt="#"
+								class="img-responsive"></a> <a href="#"><img
+								src="/img/thumb-6.jpg" alt="#" class="img-responsive"></a>
+
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2 class="section-title" align="center">
+							Get Some Great Places To escape this season<br />
+						</h2>
+						<div class="home-page-section" margin-top="5%">
+							<figure class="home-page-section-cover">
+								<img src="/img/great_escapes.jpg" alt="" class="img-responsive">
+							</figure>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2 class="section-title" align="center">WeatherWiz Wants To
+							Know Your Mood Today!</h2>
+						<!-- 	<div top-margin = "5%"> -->
+						<div class="home-page-section">
+							<table width="100%" class="table-responsive">
+								<tr>
+									<td align="center" colspan="5" style="font-size: large;">Click
+										the emoji that best expresses how you feel right now.</td>
+								</tr>
+								<tr align="center">
+									<td width="20%"><img id="imgAngry"
+										onclick="emojiClicked('imgAngry')" class="img-responsive"
+										src="/img/angry.png" width="40px"></td>
+									<td width="20%"><img id="imgSad"
+										onclick="emojiClicked('imgSad')" class="img-responsive"
+										src="/img/sad.png" width="40px"></td>
+									<td width="20%"><img id="imgNeutral"
+										onclick="emojiClicked('imgNeutral')" class="img-responsive"
+										src="/img/neutral.png" width="40px"></td>
+									<td width="20%"><img id="imgSatisfied"
+										onclick="emojiClicked('imgSatisfied')" class="img-responsive"
+										src="/img/satisfied.png" width="48px"></td>
+									<td width="20%"><img id="imgHappy"
+										onclick="emojiClicked('imgHappy')" class="img-responsive"
+										src="/img/happy.png" width="40px"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</main>
+		<!-- .main-content -->
+
+		<div th:replace="user/fragments/footer :: footer"></div>
+		<!-- .site-footer -->
+	</div>
+	<!-- <script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdbmSZkIhTvEN8sqJ1wJs8m2EbqFPu-4U&callback=initMap"> 
+
+	</script>-->
+	<script type="text/javascript" src="/inbuiltJS/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/moment.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/jquerysession.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/toastr.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/plugins.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/app.js"></script>
+	<script type="text/javascript" src="/customJS/common.js"></script>
+	<script type="text/javascript" src="/customJS/place.js"></script>
+	<script type="text/javascript" src="/customJS/home.js"></script>
+</body>
+
+</html>

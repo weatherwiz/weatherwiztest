@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0,maximum-scale=1" />
+
+<title>WeatherWiz</title>
+
+<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|"
+	rel="stylesheet" type="text/css" />
+<link href="/fonts/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+	<div class="site-content">
+		<div th:replace="user/fragments/header :: header"></div>
+		<div th:replace="guest/fragments/header :: header"></div>
+
+		<div class="container">
+			<div class="col-md-6 col-md-offset-1">
+				<h2 class="section-title">User Profile</h2>
+				<form action="#" class="contact-form">
+					<div class="row">
+						<div class="col-md-12">
+							<input id="txtUserName" type="text" placeholder="Name Of The User">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<input id="txtEmailID" type="email" placeholder="Email ID">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<input id="txtMobileNumber" type="text" placeholder="Mobile Number">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<input id="txtPassword" type="password" placeholder="Password">
+						</div>
+					</div>
+					<div class="text-right col-md-6">
+						<input type="button" id="btnSave" value="Create Account" style="background-color: #009ad8;">
+					</div>
+					<div class="text-right col-md-6">
+						<input type="button" id="btnLogin" value="Login" style="background-color: #009ad8;">
+					</div>
+				</form>
+			</div>
+		</div>
+		<main class="main-content">
+
+		<div class="fullwidth-block" data-bg-color="#1e202B">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<h2 class="section-title" align="center">Save your favorite
+							cities !</h2>
+						<div class="photo-grid">
+							<a href="#"><img src="/img/thumb-1.jpg" alt="#"></a> <a
+								href="#"><img src="/img/thumb-2.jpg" alt="#"></a> <a
+								href="#"><img src="/img/thumb-3.jpg" alt="#"></a> <a
+								href="#"><img src="/img/thumb-4.jpg" alt="#"></a> <a
+								href="#"><img src="/img/thumb-5.jpg" alt="#"></a> <a
+								href="#"><img src="/img/thumb-6.jpg" alt="#"></a>
+
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2 class="section-title" align="center">Great Escapes for
+							this season</h2>
+						<div class="live-camera" margin-top="5%">
+							<figure class="live-camera-cover">
+								<img src="/img/great_escapes.jpg" alt="">
+							</figure>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2 class="section-title" align="center">Ask Merlin the
+							Wizard!</h2>
+						<!-- 	<div top-margin = "5%"> -->
+						<div class="live-camera">
+							<figure class="live-camera-cover">
+								<img src="/img/Merlin.png" alt="">
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</main>
+		<!-- .main-content -->
+
+		<div th:replace="user/fragments/footer :: footer"></div>
+		<!-- .site-footer -->
+	</div>
+
+	<script type="text/javascript" src="/inbuiltJS/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/moment.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/jquerysession.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/toastr.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/plugins.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/app.js"></script>
+	<script type="text/javascript" src="/customJS/common.js"></script>
+	<script type="text/javascript" src="/customJS/userprofile.js"></script>
+
+</body>
+
+</html>

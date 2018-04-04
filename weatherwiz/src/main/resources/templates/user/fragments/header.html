@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0,maximum-scale=1">
+<title>WeatherWiz</title>
+<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|"
+	rel="stylesheet" type="text/css">
+<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="style.css">
+<script src="js/ie-support/html5.js"></script>
+<script src="js/ie-support/respond.js"></script>
+</head>
+<body>
+	<div class="site-header" th:fragment="header" id="divUserHeader">
+		<div class="container">
+			<a th:href="@{/user/home}" class="branding"> <img src="/img/logo.png"
+				alt="" class="logo">
+				<div class="logo-type">
+					<h1 class="site-title">WeatherWiz</h1>
+				</div>
+			</a>
+			<div class="main-navigation">
+				<button type="button" class="menu-toggle" id="btnMenu">
+					<i class="fa fa-bars"></i>
+				</button>
+				<ul class="menu" id="ulUserMenu">
+					<li id="lnkSavedCities" class="menu-item"><a th:href="@{/user/savedcities}">Saved
+							Cities</a></li>
+					<li id="lnkGreatEscapes" class="menu-item"><a
+						th:href="@{/greatescapes}">Great Escapes</a></li>
+					<li id="lnkMyAccount" class="menu-item"><a th:href="@{/user}">My Account</a></li>
+					<li id="lnkLogin" class="menu-item"><a th:href="@{/logout}">Logout</a></li>
+					<!-- <li class="menu-item"><a href="contact.html">Contact</a></li> -->
+				</ul>
+			</div>
+			<div class="mobile-navigation"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+<title>WeatherWiz</title>
+
+<link href="/css/toastr.min.css" rel="stylesheet">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|"
+	rel="stylesheet" type="text/css">
+<link href="/fonts/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<link rel="stylesheet" href="/css/style.css" />
+
+</head>
+
+<body>
+	<div class="site-content">
+		<div th:replace="user/fragments/header :: header"></div>
+
+		<div class="modal fade" id="weatherModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+						<h5 class="modal-title"></h5>
+					</div>
+					<div class="modal-body" style="height: 50px">
+						<div class="col-md-6 col-md-offset-1-SaveCityPopup">
+							<div class="tm-search-box effect2">
+								<form action="#" class="contact-form">
+									<div class="row ">
+										<div class="col-md-12">
+											<table width="100%" class="table-responsive">
+												<tr>
+													<td align="left" style="padding-left: 2px;"><input
+														onchange="placeNameTyping(this)"
+														onkeyup="this.onchange();" id="txtLocationToBeSearched"
+														onpaste="this.onchange();" oninput="this.onchange();"
+														type="text" placeholder="Find your location..."
+														class="ui-widget" /></td>
+													<td><input type="button" id="btnFindCity" value="Find"
+														style="background-color: #009ad8;"></td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div id="actionBtnFooter">
+							<input type="button"
+								style="background-color: #009ad8; border-radius: 30px; color: white;"
+								id="btnModalAddToFavorite" value="Add To Favorite" /> <input
+								type="button"
+								style="background-color: #009ad8; border-radius: 30px; color: white;"
+								id="btnModalCancel" value="Cancel" />
+						</div>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+
+		<main class="main-content">
+		<div class="fullwidth-block">
+			<div class="container">
+				<div class="row">
+					<table width="100%" class="table-responsive">
+						<tr id="trSavedCities"></tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		</main>
+		<!-- .main-content -->
+
+		<div th:replace="user/fragments/footer :: footer"></div>
+		<!-- .site-footer -->
+	</div>
+
+	<script type="text/javascript" src="/inbuiltJS/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/moment.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/jquerysession.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/toastr.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/plugins.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/app.js"></script>
+	<script type="text/javascript" src="/customJS/common.js"></script>
+	<script type="text/javascript" src="/customJS/savedcities.js"></script>
+</body>
+
+</html>
