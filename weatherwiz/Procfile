@@ -1,0 +1,2 @@
+web: java -jar target/weatherwiz-0.0.1-SNAPSHOT.jar
+worker: java -jar target/weatherwiz-0.0.1-SNAPSHOT.jar
