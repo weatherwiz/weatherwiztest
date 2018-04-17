@@ -5,7 +5,7 @@
 	<groupId>weatherwiz</groupId>
 	<artifactId>weatherwiz</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>war</packaging> 
 
 	<name>weatherwiz</name>
 	<url>http://maven.apache.org</url>
