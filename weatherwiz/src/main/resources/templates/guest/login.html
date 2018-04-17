@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0,maximum-scale=1" />
+<title>WeatherWiz</title>
+
+<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|"
+	rel="stylesheet" type="text/css" />
+<link href="/fonts/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/weatherwiz.css" />
+<link href="/css/toastr.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="site-content">
+		<div th:replace="guest/fragments/header :: header"></div>
+
+		<div class="hero" data-bg-image="/img/rain.jpg">
+			<div class="container container-table">
+				<div class="row align-items-center" height="100%">
+					<div class="col-md-12 text-center">
+						<!-- Nav tabs -->
+						<div class="col-sm-4">&nbsp;</div>
+						<div class="tm-home-box-1 col-sm-4">
+							<ul class="nav nav-tabs tm-white-bg" role="tablist"
+								id="hotelCarTabs">
+								<li role="presentation" class="active"><a href="#hotel"
+									aria-controls="hotel" role="tab" data-toggle="tab">Login</a></li>
+								<li role="presentation"><a href="#car" aria-controls="car"
+									role="tab" data-toggle="tab">Sign Up</a></li>
+							</ul>
+
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane fade in active tm-black-bg"
+									id="hotel">
+									<div class="tm-search-box effect2">
+										<form action="#" class="contact-form">
+											<div class="form-group margin-bottom-0">&nbsp;</div>
+											<div class="row">
+												<div class="col-md-12">
+													<input id="txtUsername" type="text"
+														placeholder="Email ID / Mobile Number">
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<input id="txtPassword" type="password"
+														placeholder="Password">
+												</div>
+											</div>
+											<div class="row">
+												<div class="form-group margin-bottom-0">&nbsp;</div>
+											</div>
+											<div class="row">
+												<div class="text-center col-md-12"
+													style="padding-bottom: 10px">
+													<input type="button" id="btnLogin" value="Login"
+														style="background-color: #009ad8;">
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane fade tm-black-bg" id="car">
+									<div class="tm-search-box effect2">
+										<form action="#" class="contact-form">
+											<div class="form-group margin-bottom-0">&nbsp;</div>
+											<div class="row">
+												<div class="col-md-12 text-center">
+													<input type='text' id="txtNewFirstName"
+														style="color: white;" placeholder="First Name" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12 text-center">
+													<input type='text' id="txtNewLastName"
+														style="color: white;" placeholder="Last Name" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12 text-center">
+													<input type='text' id="txtNewUserEmailID"
+														placeholder="Email ID" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12 text-center">
+													<input type='text' id="txtNewUserMobileNumber"
+														placeholder="Mobile Number" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12 text-center">
+													<input type="password" id="txtNewUserPassword"
+														placeholder="Password" />
+												</div>
+											</div>
+											<div class="form-group margin-bottom-0">&nbsp;</div>
+
+											<div class="row">
+												<div class="text-center col-md-12"
+													style="padding-bottom: 10px">
+													<input type="button" id="btnCreateAccount"
+														value="Create Account" style="background-color: #009ad8;">
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div th:replace="user/fragments/footer :: footer"></div>
+		<!-- .site-footer -->
+	</div>
+
+	<script type="text/javascript" src="/inbuiltJS/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/moment.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/jquerysession.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/toastr.min.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/plugins.js"></script>
+	<script type="text/javascript" src="/inbuiltJS/app.js"></script>
+	<script type="text/javascript" src="/customJS/common.js"></script>
+	<script type="text/javascript" src="/customJS/login.js"></script>
+</body>
+
+</html>
