@@ -30,9 +30,12 @@ spring:
     
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/WeatherWizDB
-    username: postgres
-    password: root
+    #url: jdbc:postgresql://localhost:5432/WeatherWizDB
+    #username: postgres
+    #password: root
+    url: jdbc:postgresql://ec2-54-83-204-6.compute-1.amazonaws.com:5432/d36db4vo6rfb1u
+    username: eajpkwrldyeuko
+    password: 0a17077dee4eb4eedad6979eb6de906d856047a6070f3503804c98d986f79657
 
 # Server port used for this applciation
 server:
